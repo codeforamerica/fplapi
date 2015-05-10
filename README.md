@@ -37,7 +37,7 @@ Will return a JSON response:
 
 ## Who?
 
-This is a side project of Team RVA, a 2015 Fellowship Team at Code for America. Inspired from a project idea.
+This is a side project of Team RVA, a 2015 Fellowship Team at Code for America. Inspired from a [project idea](https://github.com/codeforamerica/project-ideas/issues/70).
 
 ## Under the hood.
 
