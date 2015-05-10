@@ -1,7 +1,7 @@
 import json
 import math
 from fpl import fpl
-from flask import Flask, request, send_file, jsonify, render_template
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 VERSION = 1
