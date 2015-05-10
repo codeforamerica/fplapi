@@ -35,6 +35,10 @@ Will return a JSON response:
 }
 ```
 
+#### *`amount`* is 100% FPL.
+
+If no year is specified (i.e. `api?size=3`), it will default to the current year's requirements.
+
 ## Who?
 
 This is a side project of Team RVA, a 2015 Fellowship Team at Code for America. Inspired from a [project idea](https://github.com/codeforamerica/project-ideas/issues/70).
