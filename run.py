@@ -9,7 +9,7 @@ CURRENT_YEAR = '2015'
 NULL_RETURN = 'FPLAPI Version {}.<br>Learn more at <a href="http://github.com/svmatthews/fplapi">github.com/svmatthews/fplapi</a>.'.format(VERSION)
 
 def calculate_rate(base, rate, size):
-    amount = base + (rate * int(size))
+    amount = base + (rate * (int(size) - 1))
     return amount
 
 def nice_amount(num):
@@ -42,6 +42,7 @@ def api():
             return 'No household size specified in URL. Example: <code>size=4</code>.'
 
         income = calculate_rate(base, rate, household_size)
+
         return jsonify({
             'request': {
                 'year': year,

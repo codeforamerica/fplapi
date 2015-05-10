@@ -22,8 +22,8 @@ http://DOMAIN-TBD.org/api?year=2014&size=3
 Will return a JSON response:
 ```javascript
 {
-    amount: 23850,
-    amount_nice: "$23,850",
+    amount: 19790,
+    amount_nice: "$19,790",
     info: {
         year_base: 11670,
         year_rate: 4060
