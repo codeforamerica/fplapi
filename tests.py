@@ -14,5 +14,9 @@ class ApiTest(unittest.TestCase):
         response = json.loads(response.data)
         self.assertEqual(response['amount'], 19790)
 
+    def test_content_type_json(self):
+        response = self.app.get('/api?year=2014&size=3')
+        self.assertEqual(response.content_type, 'application/json')
+
 if __name__ == '__main__':
       unittest.main()
