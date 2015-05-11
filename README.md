@@ -47,5 +47,9 @@ This is a side project of Team RVA, a 2015 Fellowship Team at Code for America. 
 
 This is a [Flask](http://flask.pocoo.org/) application.
 
+## Running Tests
 
+To run tests (minimal at this point), run:
+
+`python tests.py`
 
