@@ -39,6 +39,23 @@ Will return a JSON response:
 
 If no year is specified (i.e. `api?size=3`), it will default to the current year's requirements.
 
+## API
+
+**Use the following parameters to build a query via `/api?...`**
+
+### `year`
+Specifies the year to make calculations on. Year rates change based on federal CPI definitions.
+
+### `size`
+Household size as per the [Healthcare.gov definition](https://www.healthcare.gov/income-and-household-information/household-size/).
+
+### `income`
+Integer specifying an income amount in USD.
+
+### `income_type`
+Specifies the incrementation of your income integer. `monthly` OR `annual`. Defaults to `annual`.
+
+
 ## Who?
 
 This is a side project of Team RVA, a 2015 Fellowship Team at Code for America. Inspired from a [project idea](https://github.com/codeforamerica/project-ideas/issues/70).
