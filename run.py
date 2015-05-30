@@ -11,7 +11,7 @@ CURRENT_USER_INCOME = 0.0
 ALLOWED_INCOME_TYPES = ('annual', 'monthly')
 
 def calculate_fpl_percentage(user_income_type, user_income, base_income):
-    user_income = user_income*12 if user_income_type == "monthly" else user_income
+    user_income = user_income*12 if user_income_type == ALLOWED_INCOME_TYPES[1] else user_income
     return round(100*(user_income/base_income), 2)
 
 def calculate_rate(base, rate, size):
