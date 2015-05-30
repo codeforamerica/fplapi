@@ -18,5 +18,10 @@ class ApiTest(unittest.TestCase):
         response = self.app.get('/api?year=2014&size=3')
         self.assertEqual(response.content_type, 'application/json')
 
+    def test_valid_fpl_percentage(self):
+        response = self.app.get('/api?year=2014&size=3&income=20000')
+        response = json.loads(response.data)
+        self.assertEqual(response['fpl_percentage'], 101.06)
+
 if __name__ == '__main__':
       unittest.main()
