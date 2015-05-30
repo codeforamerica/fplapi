@@ -28,58 +28,51 @@ def index():
 
 @app.route('/api', methods=['GET'])
 def api():
-    # if the query includes arguments, do something with them
-    if (request.args):
-
-        # if no year is specified, default to CURRENT_YEAR
-        if (request.args.get('year')):
-            year = request.args.get('year')
-        else:
-            year = CURRENT_YEAR
-
-        base = fpl[year]['base']
-        rate = fpl[year]['rate']
-
-        # if no household size is specified, return an error
-        # TODO: return a different reponse with all household size info
-        if (request.args.get('size')):
-            household_size = request.args.get('size')
-        else:
-            return 'No household size specified in URL. Example: <code>size=4</code>.'
-
-        # If no income is specified, carry on with the computations
-        if (request.args.get('income')):
-            user_income = float(request.args.get('income'))
-        else:
-            user_income = CURRENT_USER_INCOME
-
-        # If no income type is specified, set annual as default type
-        if (request.args.get('income_type') and request.args.get('income_type') in ALLOWED_INCOME_TYPES):
-            user_income_type = request.args.get('income_type')
-        else:
-            user_income_type = ALLOWED_INCOME_TYPES[0]
-
-        income = calculate_rate(base, rate, household_size)
-        fpl_percentage = calculate_fpl_percentage(user_income_type, user_income, income)
-
-        return jsonify({
-            'request': {
-                'year': year,
-                'household_size': household_size,
-                'income': user_income
-            },
-            'info': {
-                'year_base': base,
-                'year_rate': rate
-            },
-            'amount': income,
-            'amount_nice': nice_amount(income),
-            'fpl_percentage': fpl_percentage
-        })
-
-    # otherwise return a version number and learn more
+    # if no year is specified, default to CURRENT_YEAR
+    if (request.args.get('year')):
+        year = request.args.get('year')
     else:
-        return NULL_RETURN
+        year = CURRENT_YEAR
+
+    base = fpl[year]['base']
+    rate = fpl[year]['rate']
+
+    # if no household size is specified, default to 1
+    if (request.args.get('size')):
+        household_size = request.args.get('size')
+    else:
+        household_size = 1
+
+    # If no income is specified, carry on with the computations
+    if (request.args.get('income')):
+        user_income = float(request.args.get('income'))
+    else:
+        user_income = CURRENT_USER_INCOME
+
+    # If no income type is specified, set annual as default type
+    if (request.args.get('income_type') and request.args.get('income_type') in ALLOWED_INCOME_TYPES):
+        user_income_type = request.args.get('income_type')
+    else:
+        user_income_type = ALLOWED_INCOME_TYPES[0]
+
+    income = calculate_rate(base, rate, household_size)
+    fpl_percentage = calculate_fpl_percentage(user_income_type, user_income, income)
+
+    return jsonify({
+        'request': {
+            'year': year,
+            'household_size': household_size,
+            'income': user_income
+        },
+        'info': {
+            'year_base': base,
+            'year_rate': rate
+        },
+        'amount': income,
+        'amount_nice': nice_amount(income),
+        'fpl_percentage': fpl_percentage
+    })
+
 
 if __name__ == '__main__':
     app.run(debug=True)

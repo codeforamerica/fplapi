@@ -12,7 +12,7 @@ Due to inflation and CPI, the FPL income requirements change on an annual basis,
 *This application has not been deployed yet. A permanent URL will be accessible soon!*
 
 **HTTP Query**
-The easiest way to call the API is through a standard HTTP query with two parameters: *year* and *size*. Year is the year you wish to calculate against. If it isn't specified, the application will return the current year's income requirements. Size refers to [household size](https://www.healthcare.gov/income-and-household-information/household-size/) and is passed as an integer.
+The easiest way to call the API is through a standard HTTP query with two parameters: *year* and *size*. Year is the year you wish to calculate against. If it isn't specified, the application will return the current year's income requirements. Size refers to [household size](https://www.healthcare.gov/income-and-household-information/household-size/) passed as an integer. If not specified, it will default to a household size of 1.
 
 Example query:
 ```http

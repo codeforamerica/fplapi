@@ -23,5 +23,14 @@ class ApiTest(unittest.TestCase):
         response = json.loads(response.data)
         self.assertEqual(response['fpl_percentage'], 101.06)
 
+    def test_defaults_to_householdsize1_and_current_year(self):
+        explicit_argument_response = self.app.get('/api?year=2015&size=1')
+        no_argument_response = self.app.get('/api')
+        self.assertEqual(explicit_argument_response.data, no_argument_response.data)
+        only_size_arg_response = self.app.get('/api?size=1')
+        self.assertEqual(explicit_argument_response.data, only_size_arg_response.data)
+        only_year_arg_response = self.app.get('/api?year=2015')
+        self.assertEqual(explicit_argument_response.data, only_year_arg_response.data)
+
 if __name__ == '__main__':
       unittest.main()
