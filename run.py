@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 VERSION = 1
 CURRENT_YEAR = '2015'
-NULL_RETURN = 'FPLAPI Version {}.<br>Learn more at <a href="http://github.com/svmatthews/fplapi">github.com/svmatthews/fplapi</a>.'.format(VERSION)
+NULL_RETURN = 'FPLAPI Version {}.<br>Learn more at <a href="http://github.com/codeforamerica/fplapi">github.com/codeforamerica/fplapi</a>.'.format(VERSION)
 CURRENT_USER_INCOME = 0.0
 ALLOWED_INCOME_TYPES = ('annual', 'monthly')
 
