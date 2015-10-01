@@ -13,12 +13,8 @@ Due to inflation and CPI, the FPL income requirements change on an annual basis,
 The easiest way to call the API is through a standard HTTP query with two parameters: *year* and *size*. Year is the year you wish to calculate against. If it isn't specified, the application will return the current year's income requirements. Size refers to [household size](https://www.healthcare.gov/income-and-household-information/household-size/) and is passed as an integer.
 
 Example query:
-```http
-<<<<<<< HEAD
+```
 http://fplapi.herokuapp.com/api?size=3&income=2000&income_type=monthly
-=======
-http://localhost:5000/api?size=3&income=2000&income_type=monthly
->>>>>>> master
 ```
 
 Will return a JSON response:
@@ -71,4 +67,3 @@ This is a [Flask](http://flask.pocoo.org/) application.
 To run tests (minimal at this point), run:
 
 `python tests.py`
-
