@@ -1,7 +1,7 @@
 FPL API
 =======
 
-**Currently a proof of concept!**
+**Demo is available at [fplapi.herokuapp.com](fplapi.herokuapp.com)**
 
 The **Federal Poverty Level** is used as a base for many social services in our country. Meeting specific income levels is the first requirement to qualify for food stamps, health care, public housing subsidies, and [many other federally funded social programs](http://en.wikipedia.org/wiki/Social_programs_in_the_United_States#Types_of_social_programs).
 
@@ -9,14 +9,12 @@ Due to inflation and CPI, the FPL income requirements change on an annual basis,
 
 ## How?
 
-*This application has not been deployed yet. A permanent URL will be accessible soon!*
-
 **HTTP Query**
 The easiest way to call the API is through a standard HTTP query with two parameters: *year* and *size*. Year is the year you wish to calculate against. If it isn't specified, the application will return the current year's income requirements. Size refers to [household size](https://www.healthcare.gov/income-and-household-information/household-size/) and is passed as an integer.
 
 Example query:
 ```http
-http://DOMAIN-TBD.org/api?year=2014&size=3
+http://fplapi.herokuapp.com/api?size=3&income=2000&income_type=monthly
 ```
 
 Will return a JSON response:
