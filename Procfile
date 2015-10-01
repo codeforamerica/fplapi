@@ -1,1 +1,1 @@
-web: gunicorn run:start
+web: gunicorn run:start\(\)
