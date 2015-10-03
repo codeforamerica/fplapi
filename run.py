@@ -1,12 +1,17 @@
 import json
 import math
 from fpl import fpl
-from flask import Flask, request, jsonify
+from docs import API_PARAMETERS as parameters
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 VERSION = 1
 CURRENT_YEAR = '2015'
-NULL_RETURN = 'FPLAPI Version {}.<br>Learn more at <a href="http://github.com/codeforamerica/fplapi">github.com/codeforamerica/fplapi</a>.'.format(VERSION)
+NULL_RETURN = {
+    'version': VERSION,
+    'info': 'Learn more at github.com/codeforamerica/fplapi',
+    'name': 'FPL API'
+}
 CURRENT_USER_INCOME = 0.0
 ALLOWED_INCOME_TYPES = ('annual', 'monthly')
 
@@ -24,7 +29,7 @@ def nice_amount(num):
 
 @app.route('/', methods=['GET'])
 def index():
-    return NULL_RETURN
+    return render_template('index.html', parameters=parameters)
 
 @app.route('/api', methods=['GET'])
 def api():
@@ -79,7 +84,7 @@ def api():
 
     # otherwise return a version number and learn more
     else:
-        return NULL_RETURN
+        return jsonify(NULL_RETURN)
 
 if __name__ == '__main__':
     app.run(debug=True)

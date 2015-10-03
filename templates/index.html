@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <section>
+    <h1>FPL API</h1>
+    <p class="header-description">The FPL API makes current federal income requirements programmatically and reliably accessible for your applications.</p>
+  </section>
+</header>
+
+<section>
+  <p>The Federal Poverty Level is used as a base for many social services in our country. Meeting specific income levels is the first requirement to qualify for food stamps, health care, public housing subsidies, and many other federally funded social programs.</p>
+
+  <p>Due to inflation and CPI, the FPL income requirements change on an annual basis, which can make relying on numbers a hassle in web applications and other software. The FPL API makes current income requirements programmatically, and reliably accessible for your applications.</p>
+
+  <h2>Query Parameters</h2>
+
+  <p>All queries can be sent as HTTP paremeters to the <code>fplapi.herokuapp.com/api</code> endpoint.</p>
+
+  {% if parameters %}
+  {% for p in parameters %}
+  <article class="parameter cf">
+    <div class="parameter-left">
+      <code class="parameter-name">{{ p.name }}</code>
+      <p class="parameter-requirements">{{ p.required }}</p>
+    </div>
+    <div class="parameter-right">
+      <p class="parameter-description">{{ p.description | safe }}</p>
+    </div>
+  </article>
+  <p></p>
+  {% endfor %}
+  {% endif %}
+
+  <h2>Example</h2>
+  <p>The following query returns the FPL percentage for an individual with a family size of <code>3</code> and a <code>monthly</code> income of <code>2000</code> dollars.</p>
+
+  <p><a href="http://fplapi.herokuapp.com/api?size=3&income=2000&income_type=monthly"><code>http://fplapi.herokuapp.com/api?size=3&income=2000&income_type=monthly</code></a></p>
+
+  <pre><code>{
+    amount: 20090,
+    amount_nice: "$20,090",
+    fpl_percentage: 119.46,
+    info: {
+        year_base: 11770,
+        year_rate: 4160
+    },
+    request: {
+        household_size: "3",
+        income: 2000,
+        year: "2015"
+    }
+}</code></pre>
+
+  <h2>Contact, Issues, Contribute</h2>
+
+  <p>This is a <a href="https://codeforamerica.org">Code for America</a> project started by the <a href="http://rva.codeforamerica.org">2015 Richmond Fellowship team</a>. Any issues can be submitted in the repository on <a href="https://github.com/codeforamerica/fplapi">Github</a>. Hosted on Heroku. Contributions are welcome!</p>
+
+</section>
+{% endblock %}
