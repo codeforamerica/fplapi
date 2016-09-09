@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 VERSION = 1
-CURRENT_YEAR = '2015'
+CURRENT_YEAR = '2016'
 NULL_RETURN = {
     'version': VERSION,
     'info': 'Learn more at github.com/codeforamerica/fplapi',
